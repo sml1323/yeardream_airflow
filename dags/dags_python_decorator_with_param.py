@@ -21,4 +21,10 @@ with DAG(
         from pprint import pprint
         pprint(kwargs)
 
+        data_interval_start = kwargs.get('data_interval_start')
+        data_interval_end = kwargs.get('data_interval_end')
+        pprint(data_interval_start)
+        pprint(data_interval_end)
+
+
     python_task_1 = regist3('hjkim', 'man', 'seoul', email='hjkim_sun@naver.com', phone='010')
