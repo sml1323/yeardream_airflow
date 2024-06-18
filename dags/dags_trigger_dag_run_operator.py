@@ -10,22 +10,22 @@ with DAG(
     schedule='30 9 * * *',
     catchup=False
 ) as dag:
-    
+
     start_task = BashOperator(
-        task_id = 'start_task',
-        bash_command = 'echo "Start!"',
+        task_id='start_task',
+        bash_command='echo "start!"',
     )
 
     trigger_dag_task = TriggerDagRunOperator(
-        task_id = 'trigger_dag_task',
-        trigger_dag_id = "dags_python_operator",
-        trigger_run_id = None,
-        logical_date = '{{date_interval_start}}',
-        reset_dag_run = True,
-        wait_for_completion = False,
-        poke_interval = 60,
-        allowed_states = ['success'],
-        failed_status = None
-    )
+        task_id='trigger_dag_task',
+        trigger_dag_id='dags_python_operator',
+        trigger_run_id=None,
+        logical_date='{{data_interval_start}}',
+        reset_dag_run=True,
+        wait_for_completion=False,
+        poke_interval=60,
+        allowed_states=['success'],
+        failed_states=None
+        )
 
     start_task >> trigger_dag_task
