@@ -9,4 +9,4 @@ def on_failure_callback_to_kakao(context):
 
     content = {f'{dag_id}.{task_id}': f'에러내용: {exception}', '':''}      # Content 길이는 2 이상
     send_kakao_msg(talk_title=f'task 실패 알람({data_interval_end})',
-                   content=content)
+                   content=content) 
